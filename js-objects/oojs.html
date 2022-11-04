@@ -12,15 +12,31 @@
   </body>
 
     <script>
+      // object literal - object's contents are already defined
+      // we can access object's properties using both bracket and dot notation
+      // objects are associative arrays
+      // if we want to access object's property using variable, need to use brackets
       const person = {
         name: ["Bob", "Smith"],
         age: 32,
-        bio: function() {
+        bio() {
           console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
         },
-        introduceSelf: function() {
+        introduceSelf() {
           console.log(`Hi! I'm ${this.name[0]}.`);
         },
       };
+
+      // using a constructor to create a person object:
+      function Person(name) {
+        this.name = name;
+        this.introduceSelf = function () {
+          console.log(`Hi! I'm ${this.name}.`);
+        };
+
+        const salva = new Person("Salva");
+        salva.name;
+        salva.introduceSelf();
+      }
     </script>
 </html>
